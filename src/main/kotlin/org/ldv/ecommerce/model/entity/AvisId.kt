@@ -1,4 +1,11 @@
 package org.ldv.ecommerce.model.entity
 
-class AvisId {
+import jakarta.persistence.Embeddable
+import java.io.Serializable
+
+@Embeddable
+class AvisId (
+    var filmId: Long,
+    var utilisateurId: Long
+): Serializable {
 }
