@@ -6,7 +6,8 @@ import java.time.LocalDate
 class Avis(
     @EmbeddedId
     var avisId: AvisId? = null,
-
+    var date: LocalDate,
+    var note: Int,
 
     @MapsId("filmId")
     @ManyToOne
@@ -17,16 +18,8 @@ class Avis(
     @MapsId("utilisateurId")
     @ManyToOne
     @JoinColumn(name = "utilisateur_id")
-    var utilisateur: Utilisateur? = null
+    var utilisateur: Utilisateur? = null,
 
-
-
-
-//    var id:Int?,
-//    //var nom_utilisateur: Utilisateur,
-//    var date: LocalDate,
-//    //var film: Film,
-//    var note: Int,
-//    var texte: String
+    var texte: String
 ) {
 }

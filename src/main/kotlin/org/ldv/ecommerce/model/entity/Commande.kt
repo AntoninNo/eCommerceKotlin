@@ -9,6 +9,10 @@ class Commande(
 
     @ManyToOne
     @JoinColumn(name = "utilisateur_fk_id")
-    var utilisateur: Utilisateur? = null
+    var utilisateur: Utilisateur? = null,
+
+    @OneToMany(mappedBy = "commande", orphanRemoval = true)
+    var films: MutableList<Film> = mutableListOf()
+
 ) {
 }

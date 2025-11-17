@@ -34,7 +34,10 @@ class Film(
     var realisateur: Realisateur? = null,
 
     @OneToMany(mappedBy = "film", orphanRemoval = true)
-    var avis: MutableList<Avis> = mutableListOf()
+    var avis: MutableList<Avis> = mutableListOf(),
+
+    @OneToMany(mappedBy = "film", orphanRemoval = true)
+    var commandes: MutableList<Commande> = mutableListOf()
 
 
     ){}
