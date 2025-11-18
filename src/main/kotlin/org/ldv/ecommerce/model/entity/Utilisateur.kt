@@ -2,7 +2,11 @@ package org.ldv.ecommerce.model.entity
 
 import jakarta.persistence.*
 
+@Entity
 class Utilisateur(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     var id:Int?,
     var nom_utilisateur: String,
     var email: String,

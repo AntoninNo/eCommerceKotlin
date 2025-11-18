@@ -1,15 +1,14 @@
 package org.ldv.ecommerce.model.entity
 
-import org.w3c.dom.Text
-
 import jakarta.persistence.*
-
+@Entity
 class Film(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     var id: Int?,
     var nom: String,
-    var synopsis: Text,
+    var synopsis: String,
     var prix: Int,
     //var affiche: Image,
 
@@ -37,7 +36,7 @@ class Film(
     var avis: MutableList<Avis> = mutableListOf(),
 
     @OneToMany(mappedBy = "film", orphanRemoval = true)
-    var commandes: MutableList<Commande> = mutableListOf()
+    var commande: MutableList<LigneCommande> = mutableListOf()
 
 
     ){}

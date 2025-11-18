@@ -2,9 +2,11 @@ package org.ldv.ecommerce.model.entity
 
 import jakarta.persistence.*
 
-class ligneCommande (
+@Entity
+class LigneCommande(
     @EmbeddedId
-    var commandeId: NoteId? = null,
+var ligneId: LigneId,
+
     var quantité: Int,
 
     @MapsId("filmId")
