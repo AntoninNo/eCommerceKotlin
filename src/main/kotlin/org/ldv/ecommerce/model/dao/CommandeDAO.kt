@@ -1,4 +1,7 @@
 package org.ldv.ecommerce.model.dao
 
-interface CommandeDAO {
+import org.ldv.ecommerce.model.entity.Commande
+import org.springframework.data.jpa.repository.JpaRepository
+
+interface CommandeDAO:JpaRepository<Commande, Long>  {
 }
