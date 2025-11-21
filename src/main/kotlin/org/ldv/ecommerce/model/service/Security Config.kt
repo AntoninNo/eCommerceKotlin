@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configurers.LogoutConf
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
-
 @Configuration
 @EnableMethodSecurity
 class SecurityConfig {
@@ -24,7 +23,7 @@ class SecurityConfig {
             .csrf { it.disable() } //TODO Retirer cette ligne
             //Restriction des endpoints en fonction du role
             .authorizeHttpRequests {
-                it.requestMatchers("/e-commerce", "/e-commerce/inscription", "/e-commerce/connexion", "/css/**", "/js/**", "/img/**", "/favicon.ico").permitAll()
+                it.requestMatchers("/e-commerce", "/e-commerce/register", "/e-commerce/login", "/css/**", "/js/**", "/img/**", "/favicon.ico").permitAll()
                     // Autoriser l'accès pour les utilisateurs avec le rôle "ADMIN" à /admin/**
                     .requestMatchers("/e-commerce/admin/**").hasRole("ADMIN")
                     // Autoriser l'accès pour les utilisateurs avec le rôle "CLIENT" à /client/**
@@ -36,14 +35,18 @@ class SecurityConfig {
             // Configuration du formulaire de connexion
             .formLogin { form: FormLoginConfigurer<HttpSecurity?> ->
                 form
-                    .loginPage("/e-commerce/connexion").defaultSuccessUrl("/e-commerce/profil").failureUrl("/e-commerce/connexion?error=true")
+                    .loginPage("/e-commerce/login").defaultSuccessUrl("/e-commerce/profile").failureUrl("/e-commerce/login?error=true")
+                    .loginProcessingUrl("/e-commerce/login-process")
                     .permitAll()
             }
+
 
             // Configuration du mécanisme de déconnexion
             .logout { logout: LogoutConfigurer<HttpSecurity?> ->
                 logout
-                    .logoutUrl("/e-commerce/deconnexion")
+                    .logoutUrl("/e-commerce/logout")
+
+
                     .permitAll()
             }
 
