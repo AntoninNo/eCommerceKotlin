@@ -8,7 +8,7 @@ class Commande(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    var id: Int?,
+    var id: Long?,
     var dateCommande: LocalDate,
 
     @ManyToOne

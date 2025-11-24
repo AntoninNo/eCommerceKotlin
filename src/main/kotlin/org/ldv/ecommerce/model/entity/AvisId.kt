@@ -9,3 +9,4 @@ class AvisId (
     var utilisateurId: Long
 ): Serializable {
 }
+

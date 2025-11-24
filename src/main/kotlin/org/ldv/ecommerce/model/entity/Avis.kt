@@ -5,12 +5,9 @@ import java.time.LocalDate
 
 @Entity
 class Avis(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-
     @EmbeddedId
     var avisId: AvisId? = null,
+
     var date: LocalDate,
     var note: Int,
 

@@ -7,7 +7,7 @@ class Genre(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    var id: Long?,
+    var id: Long?=null,
     var nom: String,
 
     @ManyToMany(mappedBy = "genre")
