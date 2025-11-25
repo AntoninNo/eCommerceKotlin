@@ -1,22 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<div th:fragment="footer" class="container">
-    <footer class="">
-        <!--Votre pied de page-->
-    </footer>
+<div th:fragment="header" class="container">
+    <header class="">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">FilmShop</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-auto" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a sec:authorize="hasRole('ADMIN')" class="nav-link active" aria-current="page" href="e-commerce/admin/dashboard">Administration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="e-commerce">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a sec:authorize="isAnonymous()" class="nav-link" href="e-commerce/login">Se connecter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a sec:authorize="isAnonymous()" class="nav-link" href="e-commerce/login">S'inscrire</a>
+                        </li>
+<!--                        <div sec: authorize="isAuthenticated()" class="nav-item">-->
+<!--                            <form action="e-commerce/logout" method="post">-->
+<!--                                <a class="btn btn-outline-primary me-2">Se déconnecter</a>-->
+<!--                            </form>-->
+<!--                        </div>-->
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Library -->
+        <script src="https://cdn.jsdelivr.net/npm/scrollspyy-js@latest/dist/scrollspy.js"></script>
+    </header>
 
 
 </div>
 
-<div th:fragment="header" class="container">
-    <header class="">
-        <!--Votre pied de page-->
-    </header>
+<div th:fragment="footer" class="container">
+        <footer class="footer text-center">
+            <div class="container">
+                <p>Copyright &copy; 2024. All rights reserved.</p>
+                <p>Designed with <span class="text-danger">&hearts;</span> by Your Name</p>
+            </div>
+        </footer>
 
 
 </div>
